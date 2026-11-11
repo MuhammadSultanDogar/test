@@ -62,7 +62,14 @@ export function Dashboard({ mode }: { mode: DashboardMode }) {
   }
 
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="relative flex min-h-dvh flex-col overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed left-0 top-1/2 z-0 -translate-x-[38%] -translate-y-1/2 -rotate-90 select-none font-heading text-[clamp(3.5rem,9vw,8rem)] font-bold uppercase leading-none tracking-[0.18em] text-foreground/[0.035]"
+      >
+        spatiolens
+      </div>
+      <div className="relative z-10 flex min-h-dvh flex-col">
       <DashboardHeader
         mode={mode}
         feed={data}
@@ -93,6 +100,7 @@ export function Dashboard({ mode }: { mode: DashboardMode }) {
       </main>
 
       <JobsSheet mode={mode} selection={selection} open={sheetOpen} onOpenChange={setSheetOpen} />
+      </div>
     </div>
   );
 }
